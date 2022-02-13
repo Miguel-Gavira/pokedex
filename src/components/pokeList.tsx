@@ -28,7 +28,7 @@ const PokeList = () => {
 
   return (
     <section>
-      <h2>lista de pokemons</h2>
+      <img className="logo" src="/images/pokemon-logo.png" alt="pokemon" />
       {list && (
         <>
           <ul>
