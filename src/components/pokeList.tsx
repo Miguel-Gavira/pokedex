@@ -25,21 +25,26 @@ const PokeList = () => {
   const getPokemonId = (pokeUrl: string) => {
     return pokeUrl.replace(baseUrl + "/", "");
   };
+
   return (
     <section>
       <h2>lista de pokemons</h2>
       {list && (
-        <ul>
-          {list.results.map((info) => (
-            <Link key={info.name} to={`/detail/${getPokemonId(info.url)}`}>
-              <li>{info.name}</li>
-            </Link>
-          ))}
+        <>
+          <ul>
+            {list.results.map((info, index: number) => (
+              <Link key={info.name} to={`/detail/${getPokemonId(info.url)}`}>
+                <li>{info.name}</li>
+              </Link>
+            ))}
+          </ul>
+          <div className="actions">
           <button onClick={() => list.previous && setUrl(list.previous)}>
             Previus
           </button>
           <button onClick={() => list.next && setUrl(list.next)}>Next</button>
-        </ul>
+          </div>
+        </>
       )}
     </section>
   );
