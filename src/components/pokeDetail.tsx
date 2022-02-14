@@ -20,23 +20,51 @@ const PokeDetail = () => {
   return (
     <section>
       {info && (
-        <div>
-          <h2>{info.name}</h2>
-          <img
-            src={info.sprites.other["official-artwork"].front_default}
-            alt={info.name}
-          />
+        <div className="content">
+          <div className="profilePhoto">
+            <div className="image">
+              <img
+                src={
+                  info.sprites.other["official-artwork"].front_default ||
+                  info.sprites.front_shiny ||
+                  info.sprites.front_default
+                }
+                alt={info.name}
+              />
+            </div>
+            <div>
+              <h1>{info.name}</h1>
+            </div>
+          </div>
+          <hr />
+          <div className="data">
+            <div>
+              <h2>{info.weight}</h2>
+              <p>Weight</p>
+            </div>
+            <div>
+              <h2>{info.height}</h2>
+              <p>Height</p>
+            </div>
+            <div>
+              <h2>{info.order}</h2>
+              <p>Order</p>
+            </div>
+          </div>
+          <Link to="/">
+            <button>Go back</button>
+          </Link>
         </div>
       )}
-      <Link to="/">
-        <button>Go to list</button>
-      </Link>
     </section>
   );
 };
 
 interface PokemonDetail {
   name: string;
+  weight: number;
+  height: number;
+  order: number;
   sprites: {
     back_default: string;
     back_female: string | null;

@@ -22,7 +22,7 @@ const PokeList = () => {
     });
   }, [url]);
 
-  const getPokemonId = (pokeUrl: string) => {
+  const getPokemonId = (pokeUrl: string): string => {
     return pokeUrl.replace(baseUrl + "/", "");
   };
 
