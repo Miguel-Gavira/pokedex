@@ -12,7 +12,6 @@ const PokeDetail = () => {
       },
     }).then((response) => {
       response.json().then((json: PokemonDetail) => {
-        console.log(json);
         setInfo(json);
       });
     });
